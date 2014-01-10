@@ -208,8 +208,8 @@ static BOOL _alwaysUseMainBundle = NO;
 	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:APPIRATER_MESSAGE_TITLE
 														 message:APPIRATER_MESSAGE
 														delegate:self
-											   cancelButtonTitle:APPIRATER_CANCEL_BUTTON
-											   otherButtonTitles:APPIRATER_RATE_BUTTON, APPIRATER_RATE_LATER, nil];
+											   cancelButtonTitle:nil
+											   otherButtonTitles:APPIRATER_RATE_BUTTON,APPIRATER_CANCEL_BUTTON,APPIRATER_RATE_LATER, nil];
 	self.ratingAlert = alertView;
     [alertView show];
 
@@ -526,7 +526,7 @@ static BOOL _alwaysUseMainBundle = NO;
     id <AppiraterDelegate> delegate = _delegate;
 	
 	switch (buttonIndex) {
-		case 0:
+		case 1:
 		{
 			// they don't want to rate it
 			[userDefaults setBool:YES forKey:kAppiraterDeclinedToRate];
@@ -536,7 +536,7 @@ static BOOL _alwaysUseMainBundle = NO;
 			}
 			break;
 		}
-		case 1:
+		case 0:
 		{
 			// they want to rate it
 			[Appirater rateApp];
