@@ -54,7 +54,7 @@ extern NSString *const kAppiraterReminderRequestDate;
 /*!
  Your app's name.
  */
-#define APPIRATER_APP_NAME				APPIRATER_LOCALIZED_APP_NAME ? APPIRATER_LOCALIZED_APP_NAME : [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"]
+#define APPIRATER_APP_NAME				[Appirater customAppName] ? [Appirater customAppName] : (APPIRATER_LOCALIZED_APP_NAME ? APPIRATER_LOCALIZED_APP_NAME : [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"])
 
 /*!
  This is the message your users will see once they've passed the day+launches
@@ -179,6 +179,9 @@ extern NSString *const kAppiraterReminderRequestDate;
  Set your Apple generated software id here.
  */
 + (void) setAppId:(NSString*)appId;
+
++ (void)setCustomAppName:(NSString *)customName;
++ (NSString *)customAppName;
 
 /*!
  Users will need to have the same version of your app installed for this many

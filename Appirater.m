@@ -54,6 +54,7 @@ NSString *templateReviewURL = @"itms-apps://ax.itunes.apple.com/WebObjects/MZSto
 NSString *templateReviewURLiOS7 = @"itms-apps://itunes.apple.com/app/idAPP_ID";
 
 static NSString *_appId;
+static NSString *_appName;
 static double _daysUntilPrompt = 30;
 static NSInteger _usesUntilPrompt = 20;
 static NSInteger _significantEventsUntilPrompt = -1;
@@ -84,6 +85,16 @@ static BOOL _alwaysUseMainBundle = NO;
 
 + (void) setAppId:(NSString *)appId {
     _appId = appId;
+}
+
++ (void)setCustomAppName:(NSString *)customName
+{
+	_appName = customName;
+}
+
++ (NSString *)customAppName
+{
+	return _appName;
 }
 
 + (void) setDaysUntilPrompt:(double)value {
